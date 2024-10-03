@@ -42,10 +42,15 @@ router.get("/shopping-list", (req, res) => {
 
       res.status(500).json(response);
     } else {
+      let result_parsed = [];
+      if (Array.isArray(result) && result.length > 0) {
+        result_parsed = result.map((item) => JSON.parse(item.value));
+      }
+
       const response = {
         success: true,
         message: "¡Consulta exitosa!",
-        data: body,
+        data: result_parsed,
       };
       res.json(response);
     }

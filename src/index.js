@@ -11,11 +11,11 @@ app.set("json spaces", 2);
 
 //Middleware
 app.use(morgan("dev"));
-app.use(express.urlencoded({ extended: false }));
+app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 //Routes
-app.use(router_index);
+// app.use(router_index);
 app.use(router_queries);
 
 //Iniciando el servidor
